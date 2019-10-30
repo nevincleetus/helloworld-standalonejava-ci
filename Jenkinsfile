@@ -22,6 +22,10 @@ pipeline {
             }
         }
         stage('Deliver') {
+            agent {
+                docker { image 'tomcat8:jenkins' }
+            } 
+
             steps {
                 sh './scripts/deliver.sh'
             }
