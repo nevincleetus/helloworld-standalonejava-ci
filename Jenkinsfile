@@ -5,7 +5,6 @@ pipeline {
             args '-v /root/.m2:/root/.m2'
         }
     }
-    agent { dockerfile true } 
     stages {
         stage('Build') {
             steps {
