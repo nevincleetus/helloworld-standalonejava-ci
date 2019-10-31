@@ -21,12 +21,15 @@ pipeline {
                 }
             }
         }
-	node('docker') {
- 
-    	    stage 'Build & UnitTest'
-            	sh "docker build -t tomcat8:jenkins -f Dockerfile ."
-  
-	}
+	stage('Building image') {
+        	steps{
+        	    script {
+                        docker.build tomcat8:jenkins
+                    }
+               }
+        }
+
+
 
 
         stage('Deliver') {
