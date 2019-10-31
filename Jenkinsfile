@@ -25,13 +25,10 @@ pipeline {
 	stage('Building image') {
         	steps{
         	    script {
-                        docker.build tomcat8:jenkins
+                        docker.build("tomcat8:jenkins")
                     }
                }
         }
-
-
-
 
         stage('Deliver') {
             agent {
