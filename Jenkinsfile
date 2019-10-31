@@ -28,23 +28,18 @@ pipeline {
                 }
             }
         }
-	stage('Building image') {
+	//stage('Building image') {
 
-           agent {
+          // agent {
            // Equivalent to "docker build -f Dockerfile.build --build-arg version=1.0.2 ./build/
-               dockerfile {
-                  filename 'Dockerfile.build'
-                  label 'tomcat8:jenkins'
-                  args '-v /tmp:/tmp'
-               }
-            }
+           //    dockerfile {
+           //       filename 'Dockerfile.build'
+           //       label 'tomcat8:jenkins'
+           //       args '-v /tmp:/tmp'
+           //    }
+           // }
 
-            steps{
-                 script {
-                    docker.build("tomcat8:jenkins")
-                 }
-            }
-        }
+        //}
 
         stage('Deliver') {
             agent {
