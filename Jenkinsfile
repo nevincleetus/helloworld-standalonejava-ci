@@ -21,6 +21,14 @@ pipeline {
                 }
             }
         }
+	node('docker') {
+ 
+    	    stage 'Build & UnitTest'
+            	sh "docker build -t tomcat8:jenkins -f Dockerfile ."
+  
+	}
+
+
         stage('Deliver') {
             agent {
                 docker { image 'tomcat8:jenkins' }
